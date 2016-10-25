@@ -14,6 +14,7 @@ var c : Double
 var i : Int
 var j : Int
 var result : Double
+var Arr : [String]
 var Arr1 : [String]
 
 func counter(Array Arr: [String]) -> [String]{
@@ -72,14 +73,19 @@ func counter(Array Arr: [String]) -> [String]{
 
 
 
-print(" Введите уравнение в формате \n x + y * z ")
+print(" Введите уравнение в формате \n x+y*z(a/b) ")
 a = readLine()!
 if a.contains("("){
-
-    var Arr = a.components(separatedBy: " ")
     
- Arr1 = []
- 
+    Arr = []
+    
+    for index in a.characters{
+        
+        Arr += [String(index)]
+    }
+    
+    
+    Arr1 = []
  
     
     while Arr.count != 1 {
