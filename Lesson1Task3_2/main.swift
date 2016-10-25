@@ -81,27 +81,39 @@ if a.contains("("){
  Arr1 = []
  
  
- while Arr.contains(")") {
-    if Arr.index(of: "(") != nil && Arr.index(of: ")") != nil{
-        i = Arr.index(of: "(")! + 1
-        j = Arr.index(of: ")")! - 1
+    
+    while Arr.count != 1 {
         
-        for gap in Arr[i...j]{
- 
-            Arr1 += [gap]
- 
+        
+        
+        if Arr.index(of: "(") != nil && Arr.index(of: ")") != nil{
+            i = Arr.index(of: "(")! + 1
+            j = Arr.index(of: ")")! - 1
+            
+            for gap in Arr[i...j]{
+                
+                Arr1 += [gap]
+                
+            }
+            
+            
+            print(Arr1)
+            let gap = Arr.index(of: "(")!
+            let gapCounter = counter(Array: Arr1)
+            Arr[gap] = gapCounter.first!
+            j = Arr.index(of: ")")!
+            Arr[i...j] = []
+         
         }
-        print(Arr1)
-        let gap = Arr.index(of: "(")!
-        let gapCounter = counter(Array: Arr1)
-        Arr[gap] = String(describing: gapCounter)
-        j = Arr.index(of: ")")!
-        Arr[i...j] = []
-        }
-    
+        print(Arr)
+        
+       
+        if Arr.contains(")") {continue}
+        else {break}
+        
+        
+        
     }
-    
-
  print(counter(Array: Arr))
 }
     
