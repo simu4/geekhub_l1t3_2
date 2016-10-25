@@ -13,6 +13,7 @@ var b : Double
 var c : Double
 var i : Int
 var j : Int
+var temp : String
 var result : Double
 var Arr : [String]
 var Arr1 : [String]
@@ -77,14 +78,25 @@ print(" Введите уравнение в формате \n x+y*z(a/b) ")
 a = readLine()!
 if a.contains("("){
     
-    Arr = []
+    Arr = [String(describing: a.characters.first!)]
+    a.characters.removeFirst()
     
     for index in a.characters{
+        if index == "*" || index == "/" || index == "+" || index == "-" || index == "(" || index == ")" {
+            temp = String(index)
+            Arr += [temp]
+        }
+        else {
+            if Arr.last != "*" && Arr.last != "/" && Arr.last != "+" && Arr.last != "-" && Arr.last != "(" && Arr.last != ")" {
+                temp = Arr.last! + String(index)
+                Arr.removeLast()
+                Arr += [temp]
+            }
+            else { Arr += [String(index)]}
+        }
         
-        Arr += [String(index)]
+        
     }
-    
-    
     Arr1 = []
  
     
@@ -125,7 +137,25 @@ if a.contains("("){
     
 
 else{
-    var Arr1 = a.components(separatedBy: " ")
-    print(counter(Array: Arr1))
+    Arr = [String(describing: a.characters.first!)]
+    a.characters.removeFirst()
+    
+    for index in a.characters{
+        if index == "*" || index == "/" || index == "+" || index == "-" || index == "(" || index == ")" {
+            temp = String(index)
+            Arr += [temp]
+        }
+        else {
+            if Arr.last != "*" && Arr.last != "/" && Arr.last != "+" && Arr.last != "-" && Arr.last != "(" && Arr.last != ")" {
+                temp = Arr.last! + String(index)
+                Arr.removeLast()
+                Arr += [temp]
+            }
+            else { Arr += [String(index)]}
+        }
+        
+        
+    }
+    print(counter(Array: Arr))
 
 }
