@@ -76,7 +76,14 @@ func counter(Array Arr: [String]) -> [String]{
 
 print(" Введите уравнение в формате \n x+y*z(a/b) ")
 a = readLine()!
-if a.contains("("){
+if a.contains("/0*") || a.contains("/0/") || a.contains("/0+") || a.contains("/0-") || a.contains("/0)") {
+    let charcters = a.characters
+    let aReverse = Array(charcters.reversed())
+    if (aReverse[0] == "0" && aReverse[1] == "/")||(aReverse[0] == ")" && aReverse[1] == "0" && aReverse[2] == "/"){print("Нельзя делить на ноль")}
+    else {print("Нельзя делить на ноль")}
+
+}
+else if a.contains("("){
     
     Arr = [String(describing: a.characters.first!)]
     a.characters.removeFirst()
